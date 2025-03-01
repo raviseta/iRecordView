@@ -35,37 +35,24 @@ open class RecordButton: UIButton, UIGestureRecognizerDelegate {
 
     }
 
-
     private func setup() {
-        
         setTitle("", for: .normal)
-
         if image(for: .normal) == nil {
-            let image = UIImage.fromPod("mic_blue").withRenderingMode(.alwaysTemplate)
-            setImage(image, for: .normal)
-            
-            tintColor = .blue
+          let image = UIImage.fromPod("mic_blue")
+          setImage(image, for: .normal)
+          tintColor = .blue
         }
-        
-
         moveGesture = UIPanGestureRecognizer(target: self, action: #selector(touchMoved(_:)))
         moveGesture.delegate = self
-
-        
-
         touchDownAndUpGesture = iGesutreRecognizer(target: self, action: #selector(handleUpAndDown(_:)))
         touchDownAndUpGesture.delegate = self
-
-
         addGestureRecognizer(moveGesture)
         addGestureRecognizer(touchDownAndUpGesture)
-
+        addTarget(self, action: #selector(self.touchDown), for: UIControl.Event.touchUpInside)
         if mTransform == nil {
-            mTransform = transform
+          mTransform = transform
         }
-
-
-    }
+      }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

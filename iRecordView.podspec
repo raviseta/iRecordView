@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'iRecordView'
-  s.version          = '1.0.0'
+  s.version          = '2.0.0'
   s.summary          = 'A Simple Audio Recorder View with hold to Record Button and Swipe to Cancel.'
 
   s.description      = <<-DESC
